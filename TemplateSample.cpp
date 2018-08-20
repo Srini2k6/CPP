@@ -37,9 +37,13 @@ template<class T>
 const Test<T>& Test<T>::operator=(const Test<T>& test)
 {
         std::cout<<"Operator ="<<std::endl;
-        this->n = test.n;
-        this->m_ptr=test.m_ptr;
-        return *this;
+	if(this != &test)
+	{
+        	this->n = test.n;
+		delete[] this->m_ptr;
+        	this->m_ptr=test.m_ptr;
+        	return *this;
+	}
 }
 
 template<class T>
