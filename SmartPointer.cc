@@ -44,6 +44,13 @@ class SmartPointer
 			data=sp.data;
 			rc=sp.rc;
 		}
-	
+		T* operator ->()
+		{
+			return data;
+		}
+		T &operator *()
+		{
+			return *data;
+		}
 
 }
